@@ -1,0 +1,30 @@
+const TIPO_RESPUESTA = {
+    POSITIVA:1,
+    NEUTRAL:2,
+    NEGATIVA:3
+}
+
+const FRECUENCIA = {
+    DIARIA:1,
+    SEMANAL:2,
+    MENSUAL:3
+}
+
+const TIPO_ACCION = {
+    LLAMADO_MANUAL:1,
+    BUSQUEDA_DE_DATOS:2,
+    ANALASIS_FRAUDE:3
+}
+
+const TIPO_CAMPANIA = {
+    ONLINE:1,
+    SMS:2,
+    WHATSHAP:3
+}
+
+export {
+    TIPO_RESPUESTA,
+    FRECUENCIA,
+    TIPO_CAMPANIA,
+    TIPO_ACCION
+}
