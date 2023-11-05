@@ -41,7 +41,7 @@ const getAccountByPerson = (req, res) => {
   }
 };
 
-const _delete = (req, res) => {
+const remove = (req, res) => {
   let id = parseInt(req.params.id);
   let idx = tablaPersona.findIndex((i) => i.id === id);
 
@@ -58,4 +58,5 @@ export default {
     getAll,
     getAccountsByPerson,
     getAccountByPerson,
+    remove
 };

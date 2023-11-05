@@ -35,7 +35,7 @@ const add = (req, res) => {
   if (responseContent.err) {
     res.status(404).json(responseContent.message);
   } else {
-    res.setHeader("Location", `/api/persons/${personId}`);
+    res.setHeader("Location", `/api/v1/persons/${personId}`);
     res.status(201).json({});
   }
 };
@@ -63,7 +63,7 @@ const edit = (req, res) => {
 
 const remove = (req, res) => {
   let id = parseInt(req.params.id);
-  let idx = tablaPersona.findIndex((task) => task.id === id);
+  let idx = tablaPersona.findIndex((i) => i.id === id);
 
   if (idx === -1) {
     res.status(404).json({ message: "Persona no encontrada" });

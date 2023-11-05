@@ -6,6 +6,8 @@ import personController from "./controllers/personController.js";
 import accountController from "./controllers/accountController.js";
 import errorController from "./controllers/errorController.js";
 import actionController from "./controllers/actionController.js";
+import campaignController from "./controllers/campaignController.js";
+import personCampaignController from "./controllers/personCampaignController.js";
 
 const app = express();
 const port = 3000;
@@ -31,12 +33,25 @@ app.get("/api/v1/accounts", accountController.getAll);
 app.get("/api/v1/accounts/:id", accountController.get);
 app.get("/api/v1/persons/:id/accounts", accountController.getAccountsByPerson);
 app.get("/api/v1/persons/:idperson/accounts/:idaccount", accountController.getAccountByPerson);
+app.delete("/api/v1/accounts/:id", accountController.remove);
 
 //Actions
 app.get("/api/v1/actions", actionController.getAll);
 app.get("/api/v1/actions/:id", actionController.get);
 app.post("/api/v1/actions", actionController.add);
 app.delete("/api/v1/actions", actionController.remove);
+
+//Campaigns
+app.get("/api/v1/campaigns", campaignController.getAll);
+app.get("/api/v1/campaigns/:id", campaignController.get);
+app.post("/api/v1/actions/:id/campaigns", campaignController.add);
+app.delete("/api/v1/campaigns", campaignController.remove);
+
+//Persona - Campaña
+app.get("/api/v1/campaigns/:id/persons/:idPerson", personCampaignController.getPersonInCampaign);
+app.get("/api/v1/campaigns/:id/persons", personCampaignController.getPersonsInCampaign);
+app.post("/api/v1/campaigns/:id/persons/:idPerson", personCampaignController.addPersonCampaign);
+app.delete("/api/v1/campaigns/:id/persons/:idperson", personCampaignController.removePersonInCampaign);
 
 
 app.use(errorController.error404);
